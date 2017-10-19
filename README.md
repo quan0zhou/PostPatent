@@ -4,4 +4,4 @@
 
 目前暂且，只是模拟简单搜索，后期可能会加上其他复杂搜索的功能
 
-
+<img src="https://github.com/0zhouquan0/PostPatent/blob/master/searchResult.png" />
