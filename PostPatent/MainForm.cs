@@ -27,19 +27,18 @@ namespace PostPatent
         /// 简单搜索URL
         /// </summary>
         private const string simpleSearchURL = "https://patentscope.wipo.int/search/zh/search.jsf";
-        Thread th;
         private void button1_Click(object sender, EventArgs e)
         {
-      
-                th = new Thread(new ThreadStart(Todo));
+
+                Thread  th = new Thread(new ThreadStart(Todo));
                 //启动线程
                 th.Start();
-       
-        
+           
         }
 
         private  void Todo()
         {
+
             try
             {
                 //加载页面
@@ -70,10 +69,10 @@ namespace PostPatent
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"系统提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   MessageBox.Show(ex.Message, "系统提示", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
-            th.Abort();
-           
+            
+            
         }
         /// <summary>
         /// 刷新页面
@@ -163,6 +162,15 @@ namespace PostPatent
             this.comboBox1.ValueMember = "Value";
             this.comboBox1.DisplayMember = "Text";
             
+        }
+        /// <summary>
+        /// 关闭窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Environment.Exit(0);//强制线程退出
         }
     }
 }
