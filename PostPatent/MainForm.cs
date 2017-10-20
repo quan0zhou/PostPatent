@@ -27,11 +27,11 @@ namespace PostPatent
         /// 简单搜索URL
         /// </summary>
         private const string simpleSearchURL = "https://patentscope.wipo.int/search/zh/search.jsf";
-
+        Thread th;
         private void button1_Click(object sender, EventArgs e)
         {
       
-                Thread th = new Thread(new ThreadStart(Todo));
+                th = new Thread(new ThreadStart(Todo));
                 //启动线程
                 th.Start();
        
@@ -70,9 +70,9 @@ namespace PostPatent
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message,"系统提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            th.Abort();
            
         }
         /// <summary>
